@@ -1,5 +1,6 @@
 #Classe que recebe duas cidades e retorna o custo para colocar na aresta
-class custo:
+
+class Custo:
     def __init__(self, A, B):
         self.A = A #cidade A
         self.B = B #cidade B
@@ -15,6 +16,8 @@ class custo:
         coordenadas = self.A + self.B
         return coordenadas
     # Retorna o peso da aresta
-    def peso(self):
-        peso = 3.6*500
-        return peso
+
+def peso(A, B):
+    c = Custo(A, B)
+    peso = 3.6 * 500
+    return peso
