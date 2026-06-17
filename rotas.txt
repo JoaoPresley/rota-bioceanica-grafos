@@ -1,0 +1,78 @@
+Santos ↔ São Paulo
+São Paulo ↔ Campinas
+São Paulo ↔ Botucatu
+São Paulo ↔ Presidente Prudente
+Botucatu ↔ Presidente Prudente
+Campinas ↔ Bauru
+Bauru ↔ São José do Rio Preto
+São José do Rio Preto ↔ Castilho
+Castilho ↔ Três Lagoas
+Três Lagoas ↔ Água Clara
+Água Clara ↔ Campo grande
+Campo Grande ↔ Sidrolândia
+Sidrolândia ↔ Nioaque
+Nioaque ↔ Guia Lopes da Laguna
+Guia Lopes da Laguna ↔ Jardim
+Jardim ↔ Porto Murtinho
+Porto murtinho ↔ Carmelo Peralta
+Carmelo Peralta ↔ Loma Plata
+Loma plata ↔ Filadelfia
+Filadelfia ↔ Mariscal José Félix Estigarribia
+Mariscal José Félix Estigarribia ↔ Pozo Hondo
+Pozo Hondo ↔ Misión La Paz
+Misión La PaZ ↔ Tartagal
+Tartagal ↔ Joaquín V. González
+Joaquín V. González ↔ San José de Metán
+San José de Metán ↔ Salta
+Salta ↔ San Salvador de Jujuy
+San Salvador de Jujuy ↔ Purmamarca
+Purmamarca ↔ Susques
+Susques ↔ Passo de Jama
+Passo de Jama ↔ San Pedro de Atacama
+San Pedro de Atacama ↔ Calama
+Calama ↔ Sierra Gorda
+Baquedano ↔ Tocopilla
+Tocopilla ↔ Iquique
+Campo Grande ↔ Miranda
+Miranda ↔ Corumbá
+Corumbá ↔ Puerto Quijarro
+Puerto Quijarro ↔ Roboré
+Roboré ↔ San José de Chiquitos
+San José de Chiquitos ↔ Santa Cruz de la Sierra
+Santa Cruz de la Sierra ↔ Cochabamba
+Cochabamba ↔ Oruro
+Oruro ↔ Patacamaya
+Oruro ↔ Pisiga
+Colchane ↔ Huara
+Huara ↔ Iquique
+Patacamaya ↔ Tambo Quemado
+Chungará ↔ Ollague
+Ollague ↔ Calama
+Cascavel ↔ Foz do Iguaçu
+Foz do Iguaçu ↔ Ciudad del Este
+Cidade del Este ↔ Caaguazú
+Caaguazú ↔ Asunción
+Asunción ↔ Villa Hayes
+Villa Hayes ↔ Pozo Colorado
+Pozo Colorado ↔ Mariscal José Félix Estibarribia
+São Paulo ↔ Curitiba
+Curitiba ↔ Cascavel
+Curitiba ↔ Garuva
+Garuva ↔ Osório
+Osório ↔ Porto Alegre
+Porto Alegre ↔ Uruguaiana
+Uruguaiana ↔ Paso de los Libres
+Paso de los Libres ↔ Corrientes
+Corrientes ↔ Resistencia
+Resistencia ↔ Roque Sáenz Peña
+Roque Sáenz Peña ↔ Joaquín V. González
+Presidente Prudente ↔ Dourados
+Dourados ↔ Ponta Porã
+Ponta Porã ↔ Pedro Juan Caballero
+Pedro Juan Caballero ↔ Concepción
+_Concepción ↔ Mariscal José Félix Estibarribia
+Asunción ↔ Clorinda
+Clorinda ↔ Formosa
+Formosa ↔ Ciudade Perico
+Purmamarca ↔ Sãn Pedro de Atacama
+Sãn Pedro de Atacama ↔ Calama
