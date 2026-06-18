@@ -41,7 +41,38 @@ class Custo:
             response = requests.post(url, headers=headers, json=json)
             # Coleta o resposta
             if response.status_code == 200:
-                distancia = response.json()["routes"][0]["distanceMeters"]
+                if response.json() != {}:
+                    distancia = response.json()["routes"][0]["distanceMeters"]
+                else:
+                    # CASO FALHE A REQUISIÇÃO PELO NOME DAS CIDADES
+                    # TENTA FAZER A REQUISIÇÃO PELAS COORDENADAS DA CIDADE
+                    json_coordenadas = {
+                        "origin": {
+                            "location": {
+                                "latLng": {
+                                    "latitude": self.A.coordenada["latitude"],
+                                    "longitude": self.A.coordenada["longitude"]
+                                }
+                            }
+                        },
+                        "destination": {
+                            "location": {
+                                "latLng": {
+                                    "latitude": self.B.coordenada["latitude"],
+                                    "longitude": self.B.coordenada["longitude"]
+                                }
+                            }
+                        },
+                        "travelMode": "DRIVE"
+                    }
+                    response2 = requests.post(url, headers=headers, json=json_coordenadas)
+
+                    if response2.status_code == 200 and "routes" in response2.json() and len(
+                            response2.json()["routes"]) > 0:
+                        distancia = response2.json()["routes"][0]["distanceMeters"]
+                    else:
+                        print(
+                            f"Erro Crítico: Google não encontrou nenhuma rota viável de carro. Resposta: {response2.text}")
         except Exception as e:
             print(f"ERRO ao tentar achar distancia entre {self.A.name} e {self.B.name}: ", e)
 
