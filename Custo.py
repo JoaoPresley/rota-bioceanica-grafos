@@ -71,8 +71,7 @@ class Custo:
                             response2.json()["routes"]) > 0:
                         distancia = response2.json()["routes"][0]["distanceMeters"]
                     else:
-                        print(
-                            f"Erro Crítico: Google não encontrou nenhuma rota viável de carro. Resposta: {response2.text}")
+                        raise ValueError(f"API retornou: {response.text}")
         except Exception as e:
             print(f"ERRO ao tentar achar distancia entre {self.A.name} e {self.B.name}: ", e)
 
