@@ -67,7 +67,7 @@ class Custo:
     def _coordenadas(self):
         for city in self.A, self.B:
             try:
-                url = f"https://geocode.googleapis.com/v4/geocode/address/{self.A.name.replace(" ", "+")}?key={self._api_key}" #API para coordenada
+                url = f"https://geocode.googleapis.com/v4/geocode/address/{city.name.replace(" ", "+")}?key={self._api_key}" #API para coordenada
                 response = requests.get(url)
                 response.raise_for_status() #caso tenha falhado a requisição mostra erro
                 if response.status_code == 200:
