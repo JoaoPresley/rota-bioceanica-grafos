@@ -3,6 +3,14 @@ import requests
 from dotenv import load_dotenv
 import os
 
+class City:
+    def __init__(self, name):
+        self.name = name
+        self.coordenada = {
+            "latitude": "",
+            "longitude": ""
+        }
+
 class Custo:
     def __init__(self, A, B):
         self._api_key = os.getenv("API_KEY")
