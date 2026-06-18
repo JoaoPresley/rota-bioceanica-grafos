@@ -10,6 +10,7 @@ class City:
             "latitude": "",
             "longitude": ""
         }
+        self.altitude = None
 
 class Custo:
     def __init__(self, A, B):
@@ -41,10 +42,16 @@ class Custo:
             print(f"ERRO ao tentar achar distancia entre {self.A.name} e {self.B.name}: ", e)
 
         return distancia
-    # Retorna a diferença de altura entre as duas cidades
+    # Insere a altitude duas cidades
     def _altitude(self):
-        altitude = self.A + self.B
-        return altitude
+        for city in (self.A, self.B):
+            url = f"https://maps.googleapis.com/maps/api/elevation/json?locations={city.coordenada["latitude"]}%2C{city.coordenada["longitude"]}&key={self._api_key}"
+            try:
+                response = requests.get(url)
+                if response.status_code == 200:
+                    city.altitude = response.json()["results"][0]["elevation"]
+            except Exception as e:
+                print(f"Erro ao calcular altitude da cidade {city.name}: ", e)
     # Insere coordenada nas cidades
     def _coordenadas(self):
         for city in self.A, self.B:
