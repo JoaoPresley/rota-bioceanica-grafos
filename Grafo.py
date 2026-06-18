@@ -53,7 +53,6 @@ def main():
 
     #   Adiciona as arestas com o peso
     for origem, destino, w in pesos:
-        print(f"Adicionando peso de {origem} para {destino}...")
         G.add_edge(origem, destino, weight=w)
 
     # --- CONFIGURAÇÃO DA ANÁLISE DO GRUPO ---
