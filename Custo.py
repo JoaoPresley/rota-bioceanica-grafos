@@ -1,12 +1,34 @@
 #Classe que recebe duas cidades e retorna o custo para colocar na aresta
+import requests
+from dotenv import load_dotenv
+import os
 
 class Custo:
     def __init__(self, A, B):
+        self._api_key = os.getenv("API_KEY")
         self.A = A #cidade A
         self.B = B #cidade B
     # Retorna a distância entre dois pontos
     def _distancia(self):
-        distancia = self.A + self.B
+        url = "https://routes.googleapis.com/directions/v2:computeRoutes" # API google
+        mask = "routes.distanceMeters"#dados que quero da requisição
+        headers = {
+            "Content-Type: application/json",
+            f"X - Goog - Api - Key: {self._api_key}",
+            f"X-Goog-FieldMask: {mask}"
+
+        }
+        #Json das cidades
+        json = {
+            "origin": {"address": self.A},
+            "destination": {"address": self.B},
+            "travelMode": "DRIVE"
+        }
+        response = requests.post(url, headers=headers, json=json)
+        # Coleta o resposta
+        if response.status_code == 200:
+            distancia = response.json()["routes"][0]["distanceMeters"]
+
         return distancia
     # Retorna a diferença de altura entre as duas cidades
     def _altitude(self):
