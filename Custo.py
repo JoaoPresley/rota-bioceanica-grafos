@@ -17,6 +17,10 @@ class Custo:
         self._api_key = os.getenv("API_KEY")
         self.A = City(A) #cidade A
         self.B = City(B) #cidade B
+
+        #Coloca as coordenadas
+        self._coordenadas()
+
     # Retorna a distância entre dois pontos
     def _distancia(self):
         url = "https://routes.googleapis.com/directions/v2:computeRoutes" # API google
