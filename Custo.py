@@ -52,7 +52,7 @@ class Custo:
             #caso já tenha calculado altitudo não recalcula
             if (city.altitude is None):
                 continue
-                
+
             url = f"https://maps.googleapis.com/maps/api/elevation/json?locations={city.coordenada["latitude"]}%2C{city.coordenada["longitude"]}&key={self._api_key}"
             try:
                 response = requests.get(url)
@@ -77,6 +77,13 @@ class Custo:
 
 # Retorna o peso da aresta
 def peso(A, B):
-    c = Custo(A, B)
-    peso = 3.6 * 500
-    return peso
+    # Caso seja o trecho que use balsa
+    if "Porto Murtinho, Brasil" in (A, B) or "Carmelo Peralta, Paraguai" in (A, B):
+        weight = (1 * 500)+(10*60) #1m/s * 500m + espera de 10min
+    else: # Se não o calculo de peso é normal
+        c = Custo(A, B)
+        # Se for descida o veiculo percorre a uma velocidade de 100km/h (28m/s) do contrario 80km/h (22m/s)
+        velocidade = 22 if c._altitude() < 0 else 28
+        weight = velocidade*c._distancia()
+
+    return weight
