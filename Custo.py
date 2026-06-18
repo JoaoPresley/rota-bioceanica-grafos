@@ -45,6 +45,10 @@ class Custo:
     # Insere a altitude duas cidades
     def _altitude(self):
         for city in (self.A, self.B):
+            #caso já tenha calculado altitudo não recalcula
+            if (city.altitude is None):
+                continue
+                
             url = f"https://maps.googleapis.com/maps/api/elevation/json?locations={city.coordenada["latitude"]}%2C{city.coordenada["longitude"]}&key={self._api_key}"
             try:
                 response = requests.get(url)
