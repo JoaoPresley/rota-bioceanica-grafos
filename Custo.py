@@ -56,6 +56,9 @@ class Custo:
                     city.altitude = response.json()["results"][0]["elevation"]
             except Exception as e:
                 print(f"Erro ao calcular altitude da cidade {city.name}: ", e)
+
+        #Retorna a diferença de altitude do ponto A ao B
+        return self.A.altitude + self.B.altitude
     # Insere coordenada nas cidades
     def _coordenadas(self):
         for city in self.A, self.B:
