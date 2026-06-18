@@ -7,13 +7,14 @@ class City:
     def __init__(self, name):
         self.name = name
         self.coordenada = {
-            "latitude": "",
-            "longitude": ""
+            "latitude": None,
+            "longitude": None
         }
         self.altitude = None
 
 class Custo:
     def __init__(self, A, B):
+        load_dotenv()
         self._api_key = os.getenv("API_KEY")
         self.A = City(A) #cidade A
         self.B = City(B) #cidade B
@@ -26,15 +27,14 @@ class Custo:
         url = "https://routes.googleapis.com/directions/v2:computeRoutes" # API google
         mask = "routes.distanceMeters"#dados que quero da requisição
         headers = {
-            "Content-Type: application/json",
-            f"X - Goog - Api - Key: {self._api_key}",
-            f"X-Goog-FieldMask: {mask}"
-
+            "Content-Type": "application/json",
+            "X-Goog-Api-Key": self._api_key,
+            "X-Goog-FieldMask": mask
         }
         #Json das cidades
         json = {
-            "origin": {"address": self.A},
-            "destination": {"address": self.B},
+            "origin": {"address": self.A.name},
+            "destination": {"address": self.B.name},
             "travelMode": "DRIVE"
         }
         try:
@@ -45,12 +45,12 @@ class Custo:
         except Exception as e:
             print(f"ERRO ao tentar achar distancia entre {self.A.name} e {self.B.name}: ", e)
 
-        return distancia
+        return float(distancia)
     # Insere a altitude duas cidades e retorna a diferença de altura entre as cidades
     def _altitude(self):
         for city in (self.A, self.B):
             #caso já tenha calculado altitudo não recalcula
-            if (city.altitude is None):
+            if (city.altitude is not None):
                 continue
 
             url = f"https://maps.googleapis.com/maps/api/elevation/json?locations={city.coordenada["latitude"]}%2C{city.coordenada["longitude"]}&key={self._api_key}"
@@ -62,13 +62,14 @@ class Custo:
                 print(f"Erro ao calcular altitude da cidade {city.name}: ", e)
 
         #Retorna a diferença de altitude do ponto A ao B
-        return self.A.altitude + self.B.altitude
+        return float(self.A.altitude) - float(self.B.altitude)
     # Insere coordenada nas cidades
     def _coordenadas(self):
         for city in self.A, self.B:
             try:
                 url = f"https://geocode.googleapis.com/v4/geocode/address/{self.A.name.replace(" ", "+")}?key={self._api_key}" #API para coordenada
                 response = requests.get(url)
+                response.raise_for_status() #caso tenha falhado a requisição mostra erro
                 if response.status_code == 200:
                     city.coordenada["longitude"] = response.json()["results"][0]["location"]["longitude"]
                     city.coordenada["latitude"] = response.json()["results"][0]["location"]["latitude"]
