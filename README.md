@@ -1,225 +1,99 @@
-﻿# Analise da melhor rota Biocêanica
+# Análise da Rota Bioceânica com Grafos
 
-* Obejtivo
-Analisar utilizando grafos qual é a melhor rota biocêanica entre 10 cidades (analise inicial será com esse valor, no futuro pode aumentar).
-__Esse é o primeiro de 2 algoritimos__
-Logo ele será comparado com o segundo para saber qual é mais eficiente.
----
-### Desafio
-Construir um sistema que represente cidades e conexões rodoviárias da rota bioceânica e comparar dois algoritmos para encontrar o melhor caminho, considerando:
-* distância entre as cidades
-* efeito do relevo ou altitude no custo da rota
+Este projeto tem como objetivo analisar e encontrar a melhor rota bioceânica entre cidades da América do Sul, utilizando a teoria dos grafos e comparando a eficiência de diferentes algoritmos de busca de caminho. O foco principal é modelar as conexões rodoviárias e calcular o custo de cada trecho, considerando fatores como distância, relevo e travessias de balsa.
 
----
-### Modelagem do problema
----
-### Definições
-* Cidades que entrarão no grafo
-    1. Asunción
-    1. Baquedano
-    1. Bauru
-    1. Botucatu
-    1. Caaguazú
-    1. Calama
-    1. Campinas
-    1. Campo Grande
-    1. Campo grande
-    1. Carmelo Peralta
-    1. Cascavel
-    1. Castilho
-    1. Chungará
-    1. Cidade del Este
-    1. Ciudad del Este
-    1. Ciudade Perico
-    1. Clorinda
-    1. Cochabamba
-    1. Colchane
-    1. Concepción
-    1. Corrientes
-    1. Corumbá
-    1. Curitiba
-    1. Dourados
-    1. Filadelfia
-    1. Formosa
-    1. Foz do Iguaçu
-    1. Garuva
-    1. Guia Lopes da Laguna
-    1. Huara
-    1. Iquique (Destino)
-    1. Jardim
-    1. Joaquín V. González
-    1. Loma Plata
-    1. Loma plata
-    1. Mariscal José Félix Estibarribia
-    1. Mariscal José Félix Estigarribia
-    1. Miranda
-    1. Misión La PaZ
-    1. Misión La Paz
-    1. Nioaque
-    1. Ollague
-    1. Oruro
-    1. Osório
-    1. Paso de los Libres
-    1. Passo de Jama
-    1. Patacamaya
-    1. Pedro Juan Caballero
-    1. Pisiga
-    1. Ponta Porã
-    1. Porto Alegre
-    1. Porto Murtinho
-    1. Porto murtinho
-    1. Pozo Colorado
-    1. Pozo Hondo
-    1. Presidente Prudente
-    1. Puerto Quijarro
-    1. Purmamarca
-    1. Resistencia
-    1. Roboré
-    1. Roque Sáenz Peña
-    1. Salta
-    1. San José de Chiquitos
-    1. San José de Metán
-    1. San Pedro de Atacama
-    1. San Salvador de Jujuy
-    1. Santa Cruz de la Sierra
-    1. Santos (Origem)
-    1. Sidrolândia
-    1. Sierra Gorda
-    1. Susques
-    1. Sãn Pedro de Atacama
-    1. São José do Rio Preto
-    1. São Paulo
-    1. Tambo Quemado
-    1. Tartagal
-    1. Tocopilla
-    1. Três Lagoas
-    1. Uruguaiana
-    1. Villa Hayes
-    1. Água Clara
+## Funcionalidades
 
-* Cidade de origem (ponto de partida)
-    * _Santos_
-* Cidade de destino (ponto de chegada)
-    * _Iquique_
-* Conexões rodoviárias consideradas
-    1. _Santos ↔ São Paulo_
-    1. _São Paulo ↔ Campinas_
-    1. _São Paulo ↔ Botucatu_
-    1. _São Paulo ↔ Presidente Prudente_
-    1. _Botucatu ↔ Presidente Prudente_
-    1. _Campinas ↔ Bauru_
-    1. _Bauru ↔ São José do Rio Preto_
-    1. _São José do Rio Preto ↔ Castilho_
-    1. _Castilho ↔ Três Lagoas_
-    1. _Três Lagoas ↔ Água Clara_
-    1. _Água Clara ↔ Campo grande_
-    1. _Campo Grande ↔ Sidrolândia_
-    1. _Sidrolândia ↔ Nioaque_
-    1. _Nioaque ↔ Guia Lopes da Laguna_
-    1. _Guia Lopes da Laguna ↔ Jardim_
-    1. _Jardim ↔ Porto Murtinho_
-    1. _Porto murtinho ↔ Carmelo Peralta_
-    1. _Carmelo Peralta ↔ Loma Plata_
-    1. _Loma plata ↔ Filadelfia_
-    1. _Filadelfia ↔ Mariscal José Félix Estigarribia_
-    1. _Mariscal José Félix Estigarribia ↔ Pozo Hondo_
-    1. _Pozo Hondo ↔ Misión La Paz_
-    1. _Misión La PaZ ↔ Tartagal_
-    1. _Tartagal ↔ Joaquín V. González_
-    1. _Joaquín V. González ↔ San José de Metán_
-    1. _San José de Metán ↔ Salta_
-    1. _Salta ↔ San Salvador de Jujuy_
-    1. _San Salvador de Jujuy ↔ Purmamarca_
-    1. _Purmamarca ↔ Susques_
-    1. _Susques ↔ Passo de Jama_
-    1. _Passo de Jama ↔ San Pedro de Atacama_
-    1. _San Pedro de Atacama ↔ Calama_
-    1. _Calama ↔ Sierra Gorda_
-    1. _Baquedano ↔ Tocopilla_
-    1. _Tocopilla ↔ Iquique_
-    1. _Campo Grande ↔ Miranda_
-    1. _Miranda ↔ Corumbá_
-    1. _Corumbá ↔ Puerto Quijarro_
-    1. _Puerto Quijarro ↔ Roboré_
-    1. _Roboré ↔ San José de Chiquitos_
-    1. _San José de Chiquitos ↔ Santa Cruz de la Sierra_
-    1. _Santa Cruz de la Sierra ↔ Cochabamba_
-    1. _Cochabamba ↔ Oruro_
-    1. _Oruro ↔ Patacamaya_
-    1. _Oruro ↔ Pisiga_
-    1. _Colchane ↔ Huara_
-    1. _Huara ↔ Iquique_
-    1. _Patacamaya ↔ Tambo Quemado_
-    1. _Chungará ↔ Ollague_
-    1. _Ollague ↔ Calama_
-    1. _Cascavel ↔ Foz do Iguaçu_
-    1. _Foz do Iguaçu ↔ Ciudad del Este_
-    1. _Cidade del Este ↔ Caaguazú_
-    1. _Caaguazú ↔ Asunción_
-    1. _Asunción ↔ Villa Hayes_
-    1. _Villa Hayes ↔ Pozo Colorado_
-    1. _Pozo Colorado ↔ Mariscal José Félix Estibarribia_
-    1. _São Paulo ↔ Curitiba_
-    1. _Curitiba ↔ Cascavel_
-    1. _Curitiba ↔ Garuva_
-    1. _Garuva ↔ Osório_
-    1. _Osório ↔ Porto Alegre_
-    1. _Porto Alegre ↔ Uruguaiana_
-    1. _Uruguaiana ↔ Paso de los Libres_
-    1. _Paso de los Libres ↔ Corrientes_
-    1. _Corrientes ↔ Resistencia_
-    1. _Resistencia ↔ Roque Sáenz Peña_
-    1. _Roque Sáenz Peña ↔ Joaquín V. González_
-    1. _Presidente Prudente ↔ Dourados_
-    1. _Dourados ↔ Ponta Porã_
-    1. _Ponta Porã ↔ Pedro Juan Caballero_
-    1. _Pedro Juan Caballero ↔ Concepción_
-    1. _Concepción ↔ Mariscal José Félix Estibarribia
-    1. _Asunción ↔ Clorinda_
-    1. _Clorinda ↔ Formosa_
-    1. _Formosa ↔ Ciudade Perico_
-    1. _Purmamarca ↔ Sãn Pedro de Atacama_
-    1. _Sãn Pedro de Atacama ↔ Calama_
+*   **Modelagem de Grafos**: Representação de cidades como nós e conexões rodoviárias como arestas em um grafo não direcionado.
+*   **Cálculo de Custo de Arestas**: Determinação do peso de cada aresta com base na distância, diferença de altitude (influenciando a velocidade em subidas e descidas) e travessias de balsa.
+    *   **Velocidades Consideradas**:
+        *   **Descida/Plano**: 100 km/h (aproximadamente 28 m/s)
+        *   **Subida**: 80 km/h (aproximadamente 22 m/s)
+        *   **Balsa**: 3.6 km/h (aproximadamente 1 m/s), com um custo adicional de tempo de espera.
+*   **Algoritmos de Busca de Caminho**: Implementação e comparação dos algoritmos de Dijkstra e Floyd-Warshall para encontrar o caminho de menor custo entre uma cidade de origem e uma de destino.
+*   **Paralelização**: Utilização da biblioteca `dask` para paralelizar o cálculo dos custos das arestas, otimizando o desempenho para grafos maiores.
+*   **Integração com APIs do Google**: Utilização das APIs de Directions, Elevation e Geocoding do Google para obter dados de distância, altitude e coordenadas geográficas das cidades.
 
+## Pré-requisitos
 
-* Como foi calculado o peso da arestas
-    * __Para a atravesia com balsa entre _Porto Murtinho e Carmelo Peralta___
-        * Velocidade Fixa de 3,6 km/h
-    * O peso das arestas é equivalente a função de calcular custo
-        * Calcular Custo:
-        ```Distância/Velocidade```
+Para rodar este projeto, você precisará ter instalado:
 
-        ```(Velocidade em subida: 80km/h, em descida ou linha reta: 100km/h)```
-* Estrutura do grafo
-    * _Tentar anexar uma imagem_
+*   **Python 3.x**
+*   **pip** (gerenciador de pacotes Python)
+*   **Chave de API do Google Cloud**: Uma chave de API válida com acesso às seguintes APIs:
+    *   Google Maps Directions API
+    *   Google Maps Elevation API
+    *   Google Maps Geocoding API
 
-#### Apresentações:
-* Representar o grafo por lista de adjacência
-* Indicar se o grafo é direcionado ou não (por que?)
-* Função do custo
+## Instalação
 
-#### Deveres
-* Criar função de custo que combine:
-    1. Distância
-    2. Relevo ou altitude
+Siga os passos abaixo para configurar e rodar o projeto em sua máquina local:
 
----
-### Explicação da decisão
-O grupo deve apresentar:
-* o melhor caminho encontrado por cada algoritmo
-* o custo total obtido
-* o tempo de execução (big O)
-* observações sobre igualdade ou diferença entre as soluções
-* Comparação analítica
-* Comparar os algoritmos quanto a:
-ideia principal
-complexidade assintótica
-restrição de uso
-vantagens e limitações
-### Conclusão
-* Responder:
-    1. qual algoritmo foi mais eficiente
-    1. qual foi mais simples de implementar
-como a modelagem do relevo influenciou a rota
-qual trajeto seria mais adequado no cenário criado pelo grupo
+1.  **Clone o repositório**:
 
+    ```bash
+    git clone https://github.com/JoaoPresley/rota-bioceanica-grafos.git
+    cd rota-bioceanica-grafos
+    ```
+
+2.  **Instale as dependências**:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+    (Se o arquivo `requirements.txt` não existir, você pode criá-lo com as seguintes dependências e depois instalá-las):
+
+    ```bash
+    pip install networkx numpy python-dotenv requests dask dask-distributed
+    ```
+
+## Configuração da Chave de API
+
+Este projeto utiliza variáveis de ambiente para gerenciar a chave de API do Google Cloud. Siga as instruções:
+
+1.  **Crie um arquivo `.env`**: Na raiz do projeto, crie um arquivo chamado `.env`.
+
+2.  **Adicione sua chave de API**: Abra o arquivo `.env` e adicione sua chave de API do Google Cloud no formato `API_KEY=SUA_CHAVE_DE_API_AQUI`. Você pode usar o arquivo `.env_example` como referência.
+
+    Exemplo de `.env_example`:
+
+    ```
+    API_KEY=SUA_CHAVE_DE_API_AQUI
+    ```
+
+    **Importante**: Substitua `SUA_CHAVE_DE_API_AQUI` pela sua chave de API real do Google Cloud. Mantenha seu arquivo `.env` privado e nunca o comite em repositórios públicos.
+
+## Como Rodar o Projeto
+
+Após a instalação e configuração da chave de API, você pode executar o script principal:
+
+```bash
+python main.py
+```
+
+O sistema agora conta com um mecanismo de persistência. Na primeira execução, os pesos das arestas serão calculados e salvos em `grafo_cache.json`. Nas execuções seguintes, o script perguntará se você deseja utilizar os dados salvos ou recalcular tudo.
+
+O script `main.py` irá:
+
+1.  Ler as conexões de cidades do arquivo `rotas.txt`.
+2.  Calcular os pesos das arestas utilizando as APIs do Google e a lógica de custo definida em `Custo.py`.
+3.  Executar os algoritmos de Dijkstra e Floyd-Warshall para encontrar o melhor caminho entre as cidades de origem e destino (atualmente configuradas como "Santos, São Paulo, Brasil" e "Iquique, Tarapacá, Chile").
+4.  Imprimir os resultados, incluindo o caminho encontrado, o custo total, o tempo de execução e a complexidade teórica de cada algoritmo.
+
+## Estrutura do Projeto
+
+*   `main.py`: Ponto de entrada do programa. Gerencia a interface com o usuário e a execução dos algoritmos de busca.
+*   `Grafo.py`: Contém a classe `AnalisadorRota`, responsável pela construção do grafo, integração com DASK para processamento paralelo e persistência dos dados (cache).
+*   `Custo.py`: Define a classe `Custo` e a função `peso` para calcular o custo entre duas cidades. Integra-se com as APIs do Google para obter distâncias, altitudes e coordenadas geográficas.
+*   `rotas.txt`: Um arquivo de texto que lista as conexões rodoviárias entre as cidades, no formato `Cidade A <-> Cidade B`.
+*   `.env_example`: Um arquivo de exemplo para a configuração da chave de API do Google Cloud.
+*   `README.md`: Este documento, fornecendo uma visão geral do projeto, instruções de instalação, configuração e uso.
+
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou Pull Requests para melhorias, correções de bugs ou novas funcionalidades.
+
+## Licença
+
+[Adicionar informações de licença aqui, se aplicável]
