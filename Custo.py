@@ -32,21 +32,32 @@ class Custo:
             "destination": {"address": self.B},
             "travelMode": "DRIVE"
         }
-        response = requests.post(url, headers=headers, json=json)
-        # Coleta o resposta
-        if response.status_code == 200:
-            distancia = response.json()["routes"][0]["distanceMeters"]
+        try:
+            response = requests.post(url, headers=headers, json=json)
+            # Coleta o resposta
+            if response.status_code == 200:
+                distancia = response.json()["routes"][0]["distanceMeters"]
+        except Exception as e:
+            print(f"ERRO ao tentar achar distancia entre {self.A.name} e {self.B.name}: ", e)
 
         return distancia
     # Retorna a diferença de altura entre as duas cidades
     def _altitude(self):
         altitude = self.A + self.B
         return altitude
+    # Insere coordenada nas cidades
     def _coordenadas(self):
-        coordenadas = self.A + self.B
-        return coordenadas
-    # Retorna o peso da aresta
+        for city in self.A, self.B:
+            try:
+                url = f"https://geocode.googleapis.com/v4/geocode/address/{self.A.name.replace(" ", "+")}?key={self._api_key}" #API para coordenada
+                response = requests.get(url)
+                if response.status_code == 200:
+                    city.coordenada["longitude"] = response.json()["results"][0]["location"]["longitude"]
+                    city.coordenada["latitude"] = response.json()["results"][0]["location"]["latitude"]
+            except Exception as e:
+                print(f"Erro ao coletar coordenada da cidade : {city.name}: ", e)
 
+# Retorna o peso da aresta
 def peso(A, B):
     c = Custo(A, B)
     peso = 3.6 * 500
