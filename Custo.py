@@ -42,7 +42,7 @@ class Custo:
             print(f"ERRO ao tentar achar distancia entre {self.A.name} e {self.B.name}: ", e)
 
         return distancia
-    # Insere a altitude duas cidades
+    # Insere a altitude duas cidades e retorna a diferença de altura entre as cidades
     def _altitude(self):
         for city in (self.A, self.B):
             #caso já tenha calculado altitudo não recalcula
