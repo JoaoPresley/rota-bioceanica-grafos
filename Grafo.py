@@ -57,8 +57,8 @@ def main():
         G.add_edge(origem, destino, weight=w)
 
     # --- CONFIGURAÇÃO DA ANÁLISE DO GRUPO ---
-    CIDADE_ORIGEM = "Santos"
-    CIDADE_DESTINO = "Iquique"
+    CIDADE_ORIGEM = "Santos, São Paulo, Brasil"
+    CIDADE_DESTINO = "Iquique, Tarapacá, Chile"
 
     print("-" * 70)
     print(
