@@ -1,78 +1,78 @@
-Santos <-> São Paulo
-São Paulo <-> Campinas
-São Paulo <-> Botucatu
-São Paulo <-> Presidente Prudente
-Botucatu <-> Presidente Prudente
-Campinas <-> Bauru
-Bauru <-> São José do Rio Preto
-São José do Rio Preto <-> Castilho
-Castilho <-> Três Lagoas
-Três Lagoas <-> Água Clara
-Água Clara <-> Campo grande
-Campo Grande <-> Sidrolândia
-Sidrolândia <-> Nioaque
-Nioaque <-> Guia Lopes da Laguna
-Guia Lopes da Laguna <-> Jardim
-Jardim <-> Porto Murtinho
-Porto murtinho <-> Carmelo Peralta
-Carmelo Peralta <-> Loma Plata
-Loma plata <-> Filadelfia
-Filadelfia <-> Mariscal José Félix Estigarribia
-Mariscal José Félix Estigarribia <-> Pozo Hondo
-Pozo Hondo <-> Misión La Paz
-Misión La PaZ <-> Tartagal
-Tartagal <-> Joaquín V. González
-Joaquín V. González <-> San José de Metán
-San José de Metán <-> Salta
-Salta <-> San Salvador de Jujuy
-San Salvador de Jujuy <-> Purmamarca
-Purmamarca <-> Susques
-Susques <-> Passo de Jama
-Passo de Jama <-> San Pedro de Atacama
-San Pedro de Atacama <-> Calama
-Calama <-> Sierra Gorda
-Baquedano <-> Tocopilla
-Tocopilla <-> Iquique
-Campo Grande <-> Miranda
-Miranda <-> Corumbá
-Corumbá <-> Puerto Quijarro
-Puerto Quijarro <-> Roboré
-Roboré <-> San José de Chiquitos
-San José de Chiquitos <-> Santa Cruz de la Sierra
-Santa Cruz de la Sierra <-> Cochabamba
-Cochabamba <-> Oruro
-Oruro <-> Patacamaya
-Oruro <-> Pisiga
-Colchane <-> Huara
-Huara <-> Iquique
-Patacamaya <-> Tambo Quemado
-Chungará <-> Ollague
-Ollague <-> Calama
-Cascavel <-> Foz do Iguaçu
-Foz do Iguaçu <-> Ciudad del Este
-Cidade del Este <-> Caaguazú
-Caaguazú <-> Asunción
-Asunción <-> Villa Hayes
-Villa Hayes <-> Pozo Colorado
-Pozo Colorado <-> Mariscal José Félix Estibarribia
-São Paulo <-> Curitiba
-Curitiba <-> Cascavel
-Curitiba <-> Garuva
-Garuva <-> Osório
-Osório <-> Porto Alegre
-Porto Alegre <-> Uruguaiana
-Uruguaiana <-> Paso de los Libres
-Paso de los Libres <-> Corrientes
-Corrientes <-> Resistencia
-Resistencia <-> Roque Sáenz Peña
-Roque Sáenz Peña <-> Joaquín V. González
-Presidente Prudente <-> Dourados
-Dourados <-> Ponta Porã
-Ponta Porã <-> Pedro Juan Caballero
-Pedro Juan Caballero <-> Concepción
-Concepción <-> Mariscal José Félix Estibarribia
-Asunción <-> Clorinda
-Clorinda <-> Formosa
-Formosa <-> Ciudade Perico
-Purmamarca <-> Sãn Pedro de Atacama
-Sãn Pedro de Atacama <-> Calama
+Santos, Brasil <-> São Paulo, Brasil
+São Paulo, Brasil <-> Campinas, Brasil
+São Paulo, Brasil <-> Botucatu, Brasil
+São Paulo, Brasil <-> Presidente Prudente, Brasil
+Botucatu, Brasil <-> Presidente Prudente, Brasil
+Campinas, Brasil <-> Bauru, Brasil
+Bauru, Brasil <-> São José do Rio Preto, Brasil
+São José do Rio Preto, Brasil <-> Castilho, Brasil
+Castilho, Brasil <-> Três Lagoas, Brasil
+Três Lagoas, Brasil <-> Água Clara, Brasil
+Água Clara, Brasil <-> Campo Grande, Brasil
+Campo Grande, Brasil <-> Sidrolândia, Brasil
+Sidrolândia, Brasil <-> Nioaque, Brasil
+Nioaque, Brasil <-> Guia Lopes da Laguna, Brasil
+Guia Lopes da Laguna, Brasil <-> Jardim, Brasil
+Jardim, Brasil <-> Porto Murtinho, Brasil
+Porto Murtinho, Brasil <-> Carmelo Peralta, Paraguai
+Carmelo Peralta, Paraguai <-> Loma Plata, Paraguai
+Loma Plata, Paraguai <-> Filadelfia, Paraguai
+Filadelfia, Paraguai <-> Mariscal José Félix Estigarribia, Paraguai
+Mariscal José Félix Estigarribia, Paraguai <-> Pozo Hondo, Paraguai
+Pozo Hondo, Paraguai <-> Misión La Paz, Argentina
+Misión La Paz, Argentina <-> Tartagal, Argentina
+Tartagal, Argentina <-> Joaquín V. González, Argentina
+Joaquín V. González, Argentina <-> San José de Metán, Argentina
+San José de Metán, Argentina <-> Salta, Argentina
+Salta, Argentina <-> San Salvador de Jujuy, Argentina
+San Salvador de Jujuy, Argentina <-> Purmamarca, Argentina
+Purmamarca, Argentina <-> Susques, Argentina
+Susques, Argentina <-> Paso de Jama, Argentina
+Paso de Jama, Argentina <-> San Pedro de Atacama, Chile
+San Pedro de Atacama, Chile <-> Calama, Chile
+Calama, Chile <-> Sierra Gorda, Chile
+Baquedano, Chile <-> Tocopilla, Chile
+Tocopilla, Chile <-> Iquique, Chile
+Campo Grande, Brasil <-> Miranda, Brasil
+Miranda, Brasil <-> Corumbá, Brasil
+Corumbá, Brasil <-> Puerto Quijarro, Bolívia
+Puerto Quijarro, Bolívia <-> Roboré, Bolívia
+Roboré, Bolívia <-> San José de Chiquitos, Bolívia
+San José de Chiquitos, Bolívia <-> Santa Cruz de la Sierra, Bolívia
+Santa Cruz de la Sierra, Bolívia <-> Cochabamba, Bolívia
+Cochabamba, Bolívia <-> Oruro, Bolívia
+Oruro, Bolívia <-> Patacamaya, Bolívia
+Oruro, Bolívia <-> Pisiga, Bolívia
+Colchane, Chile <-> Huara, Chile
+Huara, Chile <-> Iquique, Chile
+Patacamaya, Bolívia <-> Tambo Quemado, Bolívia
+Chungará, Chile <-> Ollagüe, Chile
+Ollagüe, Chile <-> Calama, Chile
+Cascavel, Brasil <-> Foz do Iguaçu, Brasil
+Foz do Iguaçu, Brasil <-> Ciudad del Este, Paraguai
+Ciudad del Este, Paraguai <-> Caaguazú, Paraguai
+Caaguazú, Paraguai <-> Asunción, Paraguai
+Asunción, Paraguai <-> Villa Hayes, Paraguai
+Villa Hayes, Paraguai <-> Pozo Colorado, Paraguai
+Pozo Colorado, Paraguai <-> Mariscal José Félix Estigarribia, Paraguai
+São Paulo, Brasil <-> Curitiba, Brasil
+Curitiba, Brasil <-> Cascavel, Brasil
+Curitiba, Brasil <-> Garuva, Brasil
+Garuva, Brasil <-> Osório, Brasil
+Osório, Brasil <-> Porto Alegre, Brasil
+Porto Alegre, Brasil <-> Uruguaiana, Brasil
+Uruguaiana, Brasil <-> Paso de los Libres, Argentina
+Paso de los Libres, Argentina <-> Corrientes, Argentina
+Corrientes, Argentina <-> Resistencia, Argentina
+Resistencia, Argentina <-> Presidencia Roque Sáenz Peña, Argentina
+Presidencia Roque Sáenz Peña, Argentina <-> Joaquín V. González, Argentina
+Presidente Prudente, Brasil <-> Dourados, Brasil
+Dourados, Brasil <-> Ponta Porã, Brasil
+Ponta Porã, Brasil <-> Pedro Juan Caballero, Paraguai
+Pedro Juan Caballero, Paraguai <-> Concepción, Paraguai
+Concepción, Paraguai <-> Mariscal José Félix Estigarribia, Paraguai
+Asunción, Paraguai <-> Clorinda, Argentina
+Clorinda, Argentina <-> Formosa, Argentina
+Formosa, Argentina <-> Ciudad Perico, Argentina
+Purmamarca, Argentina <-> San Pedro de Atacama, Chile
+San Pedro de Atacama, Chile <-> Calama, Chile
