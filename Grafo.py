@@ -1,4 +1,5 @@
 #Grafo que funcionará para criar a analise da melhor rota bioceânica
+import time
 import networkx as nx
 import numpy as np
 from Custo import peso
